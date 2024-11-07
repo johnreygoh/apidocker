@@ -4,7 +4,10 @@ FROM php:8.2-apache
 # run update and upgrade linux vm container
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y libicu-dev libpng-dev libzip-dev
+
 RUN docker-php-ext-install intl zip gd
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+RUN docker-php-ext-install mysqli pdo pdo_mysqli
 
 # enable php mod_rewrite
 RUN a2enmod rewrite
