@@ -1,15 +1,9 @@
 version: '3.8'
-
 services:
   app:
+    container_name: project3
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: site1
-    ports:
-      - '8080:80'
-    volumes:
-      - .:/var/www/html
-    environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
+    volumes: -.:/var/www/html
+    ports: -8080:80
